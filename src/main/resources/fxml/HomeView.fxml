@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rhmanager.view.controller.HomeVController">
+    <stylesheets>
+        <URL value="@/styles/home.css" />
+    </stylesheets>
+   <children>
+      <MenuBar  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu fx:id="mCadastros" mnemonicParsing="false" style="-fx-font-size: 14;" text="Cadastros">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#abrirFormFuncionario" text="Funcionários" />
+                  <MenuItem mnemonicParsing="false" text="Usuários" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Instituição" />
+                  <Menu mnemonicParsing="false" text="Cursos">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Cursos" />
+                        <MenuItem mnemonicParsing="false" text="Disciplinas" />
+                    </items>
+                  </Menu>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="miSair" mnemonicParsing="false" text="Sair" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" style="-fx-font-size: 14;" text="Financeiro">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" style="-fx-font-size: 14;" text="Colegiado">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" style="-fx-font-size: 14;" text="Ferramentas">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" style="-fx-font-size: 14;" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ToolBar layoutY="373.0" prefHeight="0.0" prefWidth="600.0" style="-fx-border-color: #cccccc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <items>
+            <Label id="Usuario" prefHeight="17.0" prefWidth="183.0" />
+            <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="4.0" />
+            <Label id="versao" prefHeight="17.0" prefWidth="44.0" />
+            <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="1.0" />
+         </items>
+      </ToolBar>
+      <ImageView fitHeight="150.0" fitWidth="361.0" layoutX="120.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="119.0" AnchorPane.topAnchor="125.0" />
+   </children>
+</AnchorPane>

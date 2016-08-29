@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rhmanager?useSSL=false</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">lucas</property>
+        <property name="hibernate.show_sql">true</property>
+
+        <property name="hibernate.format_sql">true</property>
+
+        <property name="hibernate.c3p0.timeout">30</property>
+
+        <property name="hibernate.c3p0.max_size">10</property>
+       
+        <property name="hbm2ddl.auto">update</property>
+    
+        <!-- Geral -->
+        <mapping class="br.com.rhmanager.bean.Permissao"/>
+        <mapping class="br.com.rhmanager.bean.Usuario"/>
+        <mapping class="br.com.rhmanager.bean.Funcionario"/>
+        
+        <!--Instituição-->
+        <mapping class="br.com.rhmanager.bean.Instituicao"/>
+        <mapping class="br.com.rhmanager.bean.instituicao.SalasAndLabs"/>
+        <mapping class="br.com.rhmanager.bean.instituicao.TiposSalasAndLabs"/>
+        
+        <!--Funcionarios-->
+        <mapping class="br.com.rhmanager.bean.funcionarios.Cargos"/>
+        <mapping class="br.com.rhmanager.bean.funcionarios.Enderecos"/>
+        <mapping class="br.com.rhmanager.bean.funcionarios.Titulos"/>
+        
+        <!-- Curso -->
+        <mapping class="br.com.rhmanager.bean.Curso"/>
+        <mapping class="br.com.rhmanager.bean.cursos.Colegiado"/>
+        <mapping class="br.com.rhmanager.bean.cursos.Disciplina"/>
+        <mapping class="br.com.rhmanager.bean.cursos.Horario"/>
+        <mapping class="br.com.rhmanager.bean.cursos.PeriodoCurso"/>
+        <mapping class="br.com.rhmanager.bean.cursos.Turma"/>
+
+
+    </session-factory>
+</hibernate-configuration>
