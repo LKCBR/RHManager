@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.controlsfx.control.textfield.*?>
+<?import org.controlsfx.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import br.com.rhmanager.util.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="354.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rhmanager.view.controller.FormFuncionariosVController">
+    <stylesheets>
+        <URL value="@/styles/formfuncionarios.css" />
+    </stylesheets>
+    <children>
+        <TabPane minHeight="-Infinity" prefHeight="352.0" prefWidth="600.0" style="-fx-font-size: 14; -fx-background-color: #fff; -fx-border-color: #cccccc;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Informaçoes Pessoais">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="598.0">
+                            <children>
+                                <Label layoutX="14.0" layoutY="14.0" text="Nome:" />
+                                <TextField id="nome" layoutX="62.0" layoutY="9.0" prefHeight="30.0" prefWidth="558.0" style="-fx-min-height: 25; -fx-max-height: 30;" AnchorPane.leftAnchor="62.0" AnchorPane.topAnchor="9.0">
+                                    <font>
+                                        <Font name="Consolas" size="17.0" />
+                                    </font>
+                                </TextField>
+                                <Label layoutX="17.0" layoutY="54.0" text="CPF:" />
+                              
+                                <MaskField fx:id="tfCPF" layoutX="62.0" layoutY="49.0" mask="DDD.DDD.DDD-DD" prefHeight="30.0" prefWidth="243.0" />
+                                <Label layoutX="330.0" layoutY="54.0" text="RG:" />
+                                <MaskField id="rg" fx:id="tfRG" layoutX="398.0" layoutY="49.0" mask="DDDDDDDDDD" prefHeight="30.0" prefWidth="243.0" />
+                                <Label layoutX="14.0" layoutY="99.0" text="Sexo:" />
+                                <ComboBox fx:id="cbSexo" layoutX="62.0" layoutY="94.0" prefHeight="30.0" prefWidth="244.0" />
+                                <Label layoutX="330.0" layoutY="99.0" text="DT. Nasc:" />
+                               
+                                <MaskField fx:id="dtNasc" layoutX="398.0" layoutY="94.0" mask="DD/DD/DDDD" prefHeight="30.0" prefWidth="243.0" />
+                                
+                                <Label layoutX="14.0" layoutY="147.0" text="E-mail:" />
+                                <TextField id="email" layoutX="62.0" layoutY="142.0" prefHeight="30.0" prefWidth="558.0" style="-fx-min-height: 25; -fx-max-height: 30;">
+                                    <font>
+                                        <Font name="Consolas" size="17.0" />
+                                    </font>
+                                </TextField>
+                                <MaskField id="pis" fx:id="tfPIS" layoutX="62.0" layoutY="190.0" mask="DDD.DDDDD.DD-D" prefHeight="30.0" prefWidth="242.0" style="-fx-min-height: 25; -fx-max-height: 30;">
+                                    <font>
+                                        <Font name="Consolas" size="17.0" />
+                                    </font>
+                                </MaskField>
+                                <Label layoutX="14.0" layoutY="195.0" text="PIS:" />
+                                <Label layoutX="330.0" layoutY="195.0" text="INSS:" />
+                                <MaskField id="inss" fx:id="tfINSS" layoutX="378.0" layoutY="190.0" mask="DD.DDD.DDDDD/DD" prefHeight="30.0" prefWidth="243.0" style="-fx-min-height: 25; -fx-max-height: 30;">
+                                    <font>
+                                        <Font name="Consolas" size="17.0" />
+                                    </font>
+                                </MaskField>
+                               
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Endereços">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Label layoutX="14.0" layoutY="17.0" text="CEP:" />
+                                <MaskField id="cep" fx:id="tfCEP" layoutX="70.0" layoutY="12.0" mask="DD.DDD-DDD" onKeyReleased="#getEnd" />
+                          
+                                <Label layoutX="14.0" layoutY="55.0" text="Cidade:" />
+                                <TextField id="cidade" fx:id="tfCidade" layoutX="70.0" layoutY="50.0" prefHeight="30.0" prefWidth="258.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                                <Label layoutX="349.0" layoutY="55.0" text="Estado:" />
+                                <ComboBox fx:id="cbEstados" layoutX="401.0" layoutY="50.0" prefHeight="30.0" prefWidth="141.0" />
+                                <TextField id="rua" fx:id="tfRua" layoutX="70.0" layoutY="134.0" prefHeight="30.0" prefWidth="472.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                                <Label layoutX="14.0" layoutY="139.0" text="Rua:" />
+                                <Label layoutX="14.0" layoutY="95.0" text="Bairro" />
+                                <TextField id="bairro" fx:id="tfBairro" layoutX="70.0" layoutY="90.0" prefHeight="30.0" prefWidth="259.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                                <Label layoutX="14.0" layoutY="179.0" text="Número:" />
+                                <TextField id="numero" layoutX="70.0" layoutY="174.0" prefHeight="30.0" prefWidth="99.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                                <TextField id="complemento" layoutX="19.0" layoutY="245.0" prefHeight="30.0" prefWidth="523.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </TextField>
+                                <Label layoutX="14.0" layoutY="219.0" text="Complemento:" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Títulos">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="Cargo">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="280.0" prefWidth="600.0">
+                            <children>
+                                <Label layoutX="14.0" layoutY="14.0" text="Label" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <ToolBar layoutY="360.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <items>
+                <Button mnemonicParsing="false" style="-fx-font-size: 16;" text="Button" />
+            </items>
+        </ToolBar>
+    </children>
+</AnchorPane>

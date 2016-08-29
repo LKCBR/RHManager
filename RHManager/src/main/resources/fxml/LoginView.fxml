@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="apJanela" cacheHint="QUALITY" prefHeight="371.0" prefWidth="346.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rhmanager.view.controller.LoginVController">
+    <stylesheets>
+        <URL value="@/styles/login.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="tfUsuario" layoutX="32.0" layoutY="221.0" prefHeight="30.0" prefWidth="284.0" promptText="Insira seu Usuário" style="-fx-min-height: 32; -fx-min-width: 230;" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <PasswordField fx:id="pwSenha" layoutX="32.0" layoutY="267.0" prefHeight="30.0" prefWidth="284.0" promptText="Insira sua Senha" style="-fx-min-height: 32; -fx-min-width: 230;" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
+         <font>
+            <Font size="18.0" />
+         </font></PasswordField>
+      <Button defaultButton="true" layoutX="231.0" layoutY="312.0" mnemonicParsing="false" style="-fx-min-height: 30; -fx-min-width: 100;" text="Entrar">
+         <effect>
+            <Blend />
+         </effect></Button>
+      <Button cancelButton="true" layoutX="19.0" layoutY="312.0" mnemonicParsing="false" style="-fx-min-height: 30; -fx-min-width: 100;" text="Cancelar" />
+      <Label fx:id="version" layoutX="160.0" layoutY="186.0" prefHeight="17.0" prefWidth="31.0" style="-fx-font-weight: 23px;" text="Label" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.bottomAnchor="168.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="186.0" />
+      <ImageView fx:id="logo" fitHeight="174.0" fitWidth="323.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <image>
+            <Image url="@../../../../../../../Pictures/logo.png" />
+         </image>
+         <effect>
+            <Glow level="0.71">
+               <input>
+                  <DisplacementMap>
+                     <mapData>
+                        <FloatMap />
+                     </mapData>
+                  </DisplacementMap>
+               </input>
+            </Glow>
+         </effect>
+      </ImageView>
+      <Hyperlink layoutX="120.0" layoutY="134.0" text="Faculdade Guairaca" />
+   </children>
+</AnchorPane>
