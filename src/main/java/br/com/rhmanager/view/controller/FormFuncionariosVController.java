@@ -35,6 +35,8 @@ public class FormFuncionariosVController implements Initializable {
     /**
      * Initializes the controller class.
      */
+   
+
     List<Enderecos> enderecos = new ArrayList();
 
     Enderecos endereco = new Enderecos();
@@ -79,13 +81,7 @@ public class FormFuncionariosVController implements Initializable {
 
     TableColumn columnCidade;
 
-    private static Funcionario funcionario;
-
-    private String nome = new String();
-
-    public FormFuncionariosVController() {
-        System.out.println(nome);
-    }
+    private Funcionario funcionario;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -102,11 +98,11 @@ public class FormFuncionariosVController implements Initializable {
         enderecos.add(endereco);
         observableList = FXCollections.observableArrayList(enderecos);
 
-        tfCidade.setText(nome);
-
-        System.out.println(nome);
+     
 
     }
+
+   
 
     @FXML
     private void getEnd() {
@@ -127,22 +123,12 @@ public class FormFuncionariosVController implements Initializable {
         this.tfCEP = tfCEP;
     }
 
-    public static Funcionario getFuncionario() {
+    public Funcionario getFuncionario() {
         return funcionario;
     }
 
-    public static void setFuncionario(Funcionario funcionario) {
-        FormFuncionariosVController.funcionario = funcionario;
-    }
-
- 
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
 }

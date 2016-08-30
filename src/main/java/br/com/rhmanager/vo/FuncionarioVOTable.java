@@ -9,12 +9,14 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class FuncionarioVOTable {
 
+    private SimpleStringProperty id;
     private SimpleStringProperty nome;
     private SimpleStringProperty cpf;
     private SimpleStringProperty cargo;
     private SimpleStringProperty status;
 
-    public FuncionarioVOTable(String nome, String cpf, String cargo, String status) {
+    public FuncionarioVOTable(Long id, String nome, String cpf, String cargo, String status) {
+        this.id = new SimpleStringProperty(id.toString());
         this.nome = new SimpleStringProperty(nome);
         this.cpf = new SimpleLocalizedStringProperty(cpf);
         this.cargo = new SimpleStringProperty(cargo);
@@ -51,6 +53,14 @@ public class FuncionarioVOTable {
 
     public void setStatus(SimpleStringProperty status) {
         this.status = status;
+    }
+
+    public String getId() {
+        return id.get();
+    }
+
+    public void setId(SimpleStringProperty id) {
+        this.id = id;
     }
 
 }

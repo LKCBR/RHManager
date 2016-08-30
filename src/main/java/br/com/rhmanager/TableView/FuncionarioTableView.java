@@ -51,7 +51,8 @@ public class FuncionarioTableView {
     public void preencherTable() {
         for (Funcionario funcionario : dados) {
             FuncionarioVOTable fvot = new FuncionarioVOTable(
-                    funcionario.getNome(), 
+                    funcionario.getIdFuncionario(),
+                    funcionario.getNome(),
                     funcionario.getCpf(),
                     funcionario.getCargo().toString(),
                     funcionario.getStatus());

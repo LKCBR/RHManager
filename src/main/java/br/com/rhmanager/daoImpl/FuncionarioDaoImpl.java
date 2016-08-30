@@ -17,7 +17,7 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author lucas
  */
-public class FuncionarioDaoImpl extends HibernateDAO implements FuncionarioDAO {
+public class FuncionarioDAOImpl extends HibernateDAO implements FuncionarioDAO {
 
     @Override
     public List<Funcionario> getAllFuncionarios() {
@@ -41,6 +41,22 @@ public class FuncionarioDaoImpl extends HibernateDAO implements FuncionarioDAO {
             session = HibernateUtil.getSession();
             Criteria criteria = session.createCriteria(Funcionario.class);
             criteria.add(Restrictions.eq("cpf", cpf));
+            return (Funcionario) criteria.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public Funcionario getFuncionarioById(Long id) {
+        Session session = null;
+        try {
+            session = HibernateUtil.getSession();
+            Criteria criteria = session.createCriteria(Funcionario.class);
+            criteria.add(Restrictions.eq("idFuncionario", id));
             return (Funcionario) criteria.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();

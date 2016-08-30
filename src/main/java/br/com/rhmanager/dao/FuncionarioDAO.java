@@ -18,4 +18,6 @@ public interface FuncionarioDAO {
 
     public Funcionario getFuncionarioByCpf(String cpf);
 
+    public Funcionario getFuncionarioById(Long id);
+
 }

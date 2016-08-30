@@ -6,7 +6,7 @@
 package br.com.rhmanager.controller;
 
 import br.com.rhmanager.bean.Funcionario;
-import br.com.rhmanager.daoImpl.FuncionarioDaoImpl;
+import br.com.rhmanager.daoImpl.FuncionarioDAOImpl;
 import br.com.rhmanager.util.AlertUtil;
 import br.com.rhmanager.util.Icons;
 import br.com.rhmanager.view.controller.FormFuncionariosVController;
@@ -30,29 +30,32 @@ import javafx.stage.Stage;
 public class FuncionarioController {
 
     public List<Funcionario> listarFuncionarios() {
-        FuncionarioDaoImpl funcionarioDaoImpl = new FuncionarioDaoImpl();
+        FuncionarioDAOImpl funcionarioDaoImpl = new FuncionarioDAOImpl();
 
         return funcionarioDaoImpl.getAllFuncionarios();
+    }
+
+    public Funcionario getFuncionarioById(String idS) {
+        Long id = Long.parseLong(idS);
+        FuncionarioDAOImpl funcionarioDaoImpl = new FuncionarioDAOImpl();
+
+        return funcionarioDaoImpl.getFuncionarioById(id);
     }
 
     public void editarFuncionario(TableView<FuncionarioVOTable> tvFuncionarios, Stage stage) {
         if (tvFuncionarios.getSelectionModel().getSelectedItem() != null) {
 
-            FXMLLoader loader = new FXMLLoader(FormFuncionariosVController.class.getResource("/fxml/FormFuncionarios.fxml"));
-
-            FuncionarioDaoImpl funcionarioDaoImpl = new FuncionarioDaoImpl();
-
-            Funcionario funcionario = funcionarioDaoImpl.getFuncionarioByCpf(tvFuncionarios.getSelectionModel().getSelectedItem().getCpf());
-
+            FXMLLoader loader = new FXMLLoader();
+            Funcionario funcionario = getFuncionarioById(tvFuncionarios.getSelectionModel().getSelectedItem().getId());
             Parent root;
             try {
-                root = (Parent) loader.load();
+                root = loader.load(FormFuncionariosVController.class.getResource("/fxml/FormFuncionarios.fxml").openStream());
                 FormFuncionariosVController controller = loader.getController();
                 controller.setFuncionario(funcionario);
 
-                Scene scene = new Scene(root, 850, 600);
+                Scene scene = new Scene(root);
 
-                stage.setTitle("aasdadsd");
+                stage.setTitle("Formulário do Funcionário " + funcionario.getNome());
                 stage.setScene(scene);
 
                 stage.show();
