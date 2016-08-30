@@ -64,4 +64,12 @@ public class AlertUtil {
         alert.showAndWait();
     }
 
+    public static void erro(String titulo, String tituloErro, String erro) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(tituloErro);
+        alert.setContentText(erro);
+
+        alert.showAndWait();
+    }
 }

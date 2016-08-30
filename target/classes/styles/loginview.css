@@ -9,10 +9,9 @@
 
 
 
-#button_entrar:pressed{
-    -fx-background-color: 
-        linear-gradient(to bottom, #3093c7, #1c5a85);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#3093c7, endColorstr=#1c5a85);
-
+#button_entrar:hover:armed{
+    -fx-background-color: #0089FF;
+    
 }
 
 #button_entrar:hover {

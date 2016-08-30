@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  *
  * @author lucas
  */
-public class PrincipalView extends Application {
+public class HomeView extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {

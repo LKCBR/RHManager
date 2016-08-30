@@ -14,25 +14,25 @@
     <stylesheets>
         <URL value="@/styles/loginview.css" />
     </stylesheets>
-   <children>
-      <TextField layoutX="28.0" layoutY="200.0" prefHeight="25.0" prefWidth="278.0" promptText="Insira seu E-mail" style="-fx-min-height: 35;">
-         <font>
-            <Font name="Tahoma" size="14.0" />
-         </font>
-      </TextField>
-      <PasswordField layoutX="28.0" layoutY="249.0" prefHeight="25.0" prefWidth="278.0" promptText="Insira sua Senha" style="-fx-min-height: 35;">
-         <font>
-            <Font name="Tahoma" size="14.0" />
-         </font>
-      </PasswordField>
-      <Button id="button_entrar" layoutX="28.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="278.0" style="-fx-min-height: 40;" stylesheets="@../styles/loginview.css" text="Entrar" textFill="WHITE">
-         <font>
-            <Font size="17.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <ToolBar id="rodape" layoutY="372.0" prefHeight="22.0" prefWidth="333.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-   </children>
+    <children>
+        <TextField layoutX="28.0" fx:id="tfEmail" layoutY="200.0" prefHeight="25.0" prefWidth="278.0" promptText="Insira seu E-mail" style="-fx-min-height: 35;">
+            <font>
+                <Font name="Tahoma" size="14.0" />
+            </font>
+        </TextField>
+        <PasswordField layoutX="28.0" fx:id="pwSenha" layoutY="249.0" prefHeight="25.0" prefWidth="278.0" promptText="Insira sua Senha" style="-fx-min-height: 35;">
+            <font>
+                <Font name="Tahoma" size="14.0" />
+            </font>
+        </PasswordField>
+        <Button id="button_entrar" fx:id="btEntrar" layoutX="28.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="278.0" style="-fx-min-height: 40;" stylesheets="@../styles/loginview.css" text="Entrar" textFill="WHITE">
+            <font>
+                <Font size="17.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <ToolBar id="rodape" layoutY="372.0" prefHeight="22.0" prefWidth="333.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    </children>
 </AnchorPane>

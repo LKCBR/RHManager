@@ -1,11 +1,14 @@
+C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\daoImpl\UsuarioDAOImpl.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\Curso.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\instituicao\SalasAndLabs.java
-C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\view\PrincipalView.java
+C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\view\HomeView.java
+C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\util\MD5Util.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\cursos\PeriodoCurso.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\funcionarios\Enderecos.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\util\HibernateUtil.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\daoImpl\HibernateDAO.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\view\controller\FuncionariosVController.java
+C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\dao\UsuarioDAO.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\cursos\Colegiado.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\funcionarios\Cargos.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\funcionarios\Titulos.java
@@ -24,10 +27,11 @@ C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\cu
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\dao\FuncionarioDAO.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\Usuario.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\view\controller\HomeVController.java
+C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\view\LoginView.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\util\Icons.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\util\AlertUtil.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\view\controller\FormFuncionariosVController.java
-C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\daoImpl\FuncionarioDaoImpl.java
+C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\daoImpl\FuncionarioDAOImpl.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\Permissao.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\TableView\FuncionarioTableView.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\Funcionario.java
@@ -36,3 +40,4 @@ C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\vo\Func
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\Instituicao.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\util\CaminhosFXML.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\view\FormFuncionarioView.java
+C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\controller\UsuarioController.java

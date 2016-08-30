@@ -40,60 +40,60 @@ public class FuncionariosVController implements Initializable {
      */
     FuncionarioController funcionarioController = new FuncionarioController();
     FuncionarioTableView funcionarioTableView;
-    
+
     ObservableList<Funcionario> funcionarios;
-    
+    Thread carregarTb;
+
     @FXML
     private TableView<FuncionarioVOTable> tvFuncionarios;
-    
+
     @FXML
     private TableColumn<FuncionarioVOTable, String> tcNome = new TableColumn<>();
-    
+
     @FXML
     private TableColumn<FuncionarioVOTable, String> tcCPF = new TableColumn<>();
-    
+
     @FXML
     private TableColumn<FuncionarioVOTable, String> tcCargo = new TableColumn<>();
-    
+
     @FXML
     private TableColumn<FuncionarioVOTable, String> tcStatus = new TableColumn<>();
-    
+
     @FXML
     private MenuItem btNovoFuncionario;
-    
+
     @FXML
     private MenuItem btEditFuncionario;
-    
+
     @FXML
     private MenuItem btExcluirFuncionario;
-    
+
     @FXML
     private MenuItem btInfoFuncionario;
-    
+
     @FXML
     private Menu mOptions;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
+        carregarTb = new Thread(carregarTabela);
+        carregarTb.start();
         mOptions.setGraphic(Icons.getIcon(Icons.ICON_MENU, 33));
         btNovoFuncionario.setGraphic(Icons.getIcon(Icons.ICON_ADD, 33));
         btInfoFuncionario.setGraphic(Icons.getIcon(Icons.ICON_INFO, 33));
         btExcluirFuncionario.setGraphic(Icons.getIcon(Icons.ICON_DELETE, 33));
         btEditFuncionario.setGraphic(Icons.getIcon(Icons.ICON_EDIT, 33));
-        
+
         funcionarioTableView = new FuncionarioTableView(tvFuncionarios, tcNome, tcCPF, tcCargo, tcStatus);
-        
-        funcionarioTableView.addAllDados(funcionarioController.listarFuncionarios());
-        funcionarioTableView.start();
+
     }
-    
+
     @FXML
     private void editarFuncionario() {
         funcionarioController.editarFuncionario(tvFuncionarios, new Stage());
     }
-    
+
     @FXML
     private void novoFuncionario() {
         FormFuncionariosVController ffvc = new FormFuncionariosVController();
@@ -114,7 +114,15 @@ public class FuncionariosVController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FuncionariosVController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
+    Runnable carregarTabela = new Runnable() {
+        @Override
+        public void run() {
+            funcionarioTableView.addAllDados(funcionarioController.listarFuncionarios());
+            funcionarioTableView.start();
+        }
+    };
+
 }
