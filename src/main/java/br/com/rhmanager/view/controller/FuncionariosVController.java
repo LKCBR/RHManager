@@ -20,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -69,6 +70,9 @@ public class FuncionariosVController implements Initializable {
     @FXML
     private Menu mOptions;
 
+    @FXML
+    private ProgressBar progressBar;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -80,9 +84,8 @@ public class FuncionariosVController implements Initializable {
         btEditFuncionario.setGraphic(Icons.getIcon(Icons.ICON_EDIT, 33));
 
         funcionarioTableView = new FuncionarioTableView(tvFuncionarios, tcNome, tcCPF, tcCargo, tcStatus);
-
-        funcionarioTableView.addAllDados(funcionarioController.listarFuncionarios());
-        funcionarioTableView.start();
+        Thread thread = new Thread(preencherTable);
+        thread.start();
     }
 
     @FXML
@@ -98,5 +101,14 @@ public class FuncionariosVController implements Initializable {
             Logger.getLogger(FuncionariosVController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    Runnable preencherTable = new Runnable() {
+        @Override
+        public void run() {
+            funcionarioTableView.addAllDados(funcionarioController.listarFuncionarios());
+            funcionarioTableView.start();
+            progressBar.indeterminateProperty();
+        }
+    };
 
 }

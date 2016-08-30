@@ -44,13 +44,15 @@
             <menus>
                 <Menu fx:id="mOptions" mnemonicParsing="false" text="Opções">
                     <items>
-                        <MenuItem fx:id="btNovoFuncionario" mnemonicParsing="false" text="Novo Funcionário" onAction="#novoFuncionario" />
-                        <MenuItem fx:id="btEditFuncionario" mnemonicParsing="false" text="Editar Funcionário" onAction="#editarFuncionario"  />
+                        <MenuItem fx:id="btNovoFuncionario" mnemonicParsing="false" onAction="#novoFuncionario" text="Novo Funcionário" />
+                        <MenuItem fx:id="btEditFuncionario" mnemonicParsing="false" onAction="#editarFuncionario" text="Editar Funcionário" />
                         <MenuItem fx:id="btExcluirFuncionario" mnemonicParsing="false" text="Excluir Funcionário" />
                         <MenuItem fx:id="btInfoFuncionario" mnemonicParsing="false" text="Gerênciar Funcionário" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
+      <ProgressBar prefWidth="200.0" progress="0.0" />
+      <ProgressBar layoutX="20.0" layoutY="108.0" prefHeight="18.0" prefWidth="960.0" progress="0.0" AnchorPane.bottomAnchor="474.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="108.0" />
     </children>
 </AnchorPane>

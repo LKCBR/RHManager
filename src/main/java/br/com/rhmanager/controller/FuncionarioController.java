@@ -40,11 +40,15 @@ public class FuncionarioController {
 
             FXMLLoader loader = new FXMLLoader(FormFuncionariosVController.class.getResource("/fxml/FormFuncionarios.fxml"));
 
+            FuncionarioDaoImpl funcionarioDaoImpl = new FuncionarioDaoImpl();
+
+            Funcionario funcionario = funcionarioDaoImpl.getFuncionarioByCpf(tvFuncionarios.getSelectionModel().getSelectedItem().getCpf());
+
             Parent root;
             try {
                 root = (Parent) loader.load();
-                FormFuncionariosVController controller =  loader.getController();
-                controller.setNome("TESTEEEEEEE");
+                FormFuncionariosVController controller = loader.getController();
+                controller.setFuncionario(funcionario);
 
                 Scene scene = new Scene(root, 850, 600);
 

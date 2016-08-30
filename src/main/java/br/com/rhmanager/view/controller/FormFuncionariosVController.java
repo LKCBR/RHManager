@@ -79,7 +79,7 @@ public class FormFuncionariosVController implements Initializable {
 
     TableColumn columnCidade;
 
-    private Funcionario funcionario;
+    private static Funcionario funcionario;
 
     private String nome = new String();
 
@@ -127,13 +127,15 @@ public class FormFuncionariosVController implements Initializable {
         this.tfCEP = tfCEP;
     }
 
-    public Funcionario getFuncionario() {
+    public static Funcionario getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
+    public static void setFuncionario(Funcionario funcionario) {
+        FormFuncionariosVController.funcionario = funcionario;
     }
+
+ 
 
     public String getNome() {
         return nome;

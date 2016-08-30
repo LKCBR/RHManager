@@ -1,0 +1,38 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+
+
+
+#button_entrar:pressed{
+    -fx-background-color: 
+        linear-gradient(to bottom, #3093c7, #1c5a85);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#3093c7, endColorstr=#1c5a85);
+
+}
+
+#button_entrar:hover {
+    -fx-background-color: 
+        linear-gradient(to bottom, #1ab0ec, #1a92c2);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#1ab0ec, endColorstr=#1a92c2);
+    -fx-font-color: #fff;
+    box-shadow: 0 10px 6px -6px #777;
+}
+
+#rodape{
+    -fx-background-color: 
+        linear-gradient(to bottom, #f4f5f5, #dfdddd);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
+
+}
+
+
+#button_entrar{
+    -fx-background-color: 
+        linear-gradient(to bottom, #49c0f0, #2CAFE3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#49c0f0, endColorstr=#2CAFE3);
+    -fx-font-color: #fff;
+}
+
+
