@@ -13,7 +13,7 @@
         <URL value="@/styles/home.css" />
     </stylesheets>
    <children>
-      <MenuBar  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar id="menuBar" stylesheets="@../styles/home.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu fx:id="mCadastros" mnemonicParsing="false" style="-fx-font-size: 14;" text="Cadastros">
             <items>
@@ -31,22 +31,22 @@
                   <MenuItem fx:id="miSair" mnemonicParsing="false" text="Sair" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" style="-fx-font-size: 14;" text="Financeiro">
+          <Menu fx:id="mFinanceiro" mnemonicParsing="false" style="-fx-font-size: 14;" text="Financeiro">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" style="-fx-font-size: 14;" text="Colegiado">
+            <Menu fx:id="mColegiado" mnemonicParsing="false" style="-fx-font-size: 14;" text="Colegiado">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" style="-fx-font-size: 14;" text="Ferramentas">
+            <Menu fx:id="mTools" mnemonicParsing="false" style="-fx-font-size: 14;" text="Ferramentas">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
               </items>
             </Menu>
-          <Menu mnemonicParsing="false" style="-fx-font-size: 14;" text="Help">
+          <Menu fx:id="mAbout" mnemonicParsing="false" style="-fx-font-size: 14;" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>

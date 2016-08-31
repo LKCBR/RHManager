@@ -11,7 +11,7 @@
 
 #button_entrar:hover:armed{
     -fx-background-color: #0089FF;
-    
+
 }
 
 #button_entrar:hover {
@@ -24,6 +24,14 @@
 #rodape{
     -fx-background-color: 
         linear-gradient(to bottom, #f4f5f5, #dfdddd);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
+    -fx-border-color:#cccccc;
+}
+
+#barra_sup{
+    -fx-background-color: 
+        linear-gradient(to bottom, #f4f5f5, #dfdddd);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
+    -fx-border-color:#cccccc;
+
 
 }
 

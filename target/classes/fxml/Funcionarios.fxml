@@ -52,7 +52,5 @@
                 </Menu>
             </menus>
         </MenuBar>
-      <ProgressBar prefWidth="200.0" progress="0.0" />
-      <ProgressBar layoutX="20.0" layoutY="108.0" prefHeight="18.0" prefWidth="960.0" progress="0.0" AnchorPane.bottomAnchor="474.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="108.0" />
     </children>
 </AnchorPane>

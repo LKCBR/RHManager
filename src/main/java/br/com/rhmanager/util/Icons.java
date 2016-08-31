@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
  */
 public class Icons {
 
+    public static String ICON_LOGO = "/images/logo2.png";
     public static String ICON_EXCLUIR = "/images/icons/cancel.png";
     public static String ICON_CAPELO = "/images/icons/capelo.png";
     public static String ICON_REGISTER = "/images/icons/register.png";
@@ -22,6 +23,10 @@ public class Icons {
     public static String ICON_EDIT = "/images/icons/Edit.png";
     public static String ICON_MENU = "/images/icons/menu.png";
     public static String ICON_PRINCIPAL = "/images/icons/principal.png";
+    public static String ICON_FINANCEIRO = "/images/icons/finances.png";
+    public static String ICON_COLEGIADO = "/images/icons/colegiado.png";
+    public static String ICON_ABOUT = "/images/icons/about.png";
+    public static String ICON_TOOLS = "/images/icons/tools.png";
 
     public static ImageView getIcon(String caminho, double tamanho) {
         ImageView icon = new ImageView(caminho);
@@ -29,5 +34,7 @@ public class Icons {
         icon.setFitWidth(tamanho);
         return icon;
     }
+    
+ 
 
 }

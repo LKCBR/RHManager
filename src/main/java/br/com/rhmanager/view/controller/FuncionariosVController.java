@@ -77,8 +77,7 @@ public class FuncionariosVController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        carregarTb = new Thread(carregarTabela);
-        carregarTb.start();
+
         mOptions.setGraphic(Icons.getIcon(Icons.ICON_MENU, 33));
         btNovoFuncionario.setGraphic(Icons.getIcon(Icons.ICON_ADD, 33));
         btInfoFuncionario.setGraphic(Icons.getIcon(Icons.ICON_INFO, 33));
@@ -86,7 +85,8 @@ public class FuncionariosVController implements Initializable {
         btEditFuncionario.setGraphic(Icons.getIcon(Icons.ICON_EDIT, 33));
 
         funcionarioTableView = new FuncionarioTableView(tvFuncionarios, tcNome, tcCPF, tcCargo, tcStatus);
-
+        carregarTb = new Thread(carregarTabela);
+        carregarTb.start();
     }
 
     @FXML

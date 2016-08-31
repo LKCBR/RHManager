@@ -26,26 +26,40 @@ public class HomeVController implements Initializable {
      */
     @FXML
     private MenuItem miSair;
-    
+
     @FXML
     private MenuItem miFuncionarios;
-    
+
+    @FXML
+    private Menu mColegiado;
+
+    @FXML
+    private Menu mFinanceiro;
+
     @FXML
     private Menu mCadastros;
-    
-    
-    
+
+    @FXML
+    private Menu mTools;
+
+    @FXML
+    private Menu mAbout;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         miSair.setGraphic(Icons.getIcon(Icons.ICON_EXCLUIR, 22));
+        mColegiado.setGraphic(Icons.getIcon(Icons.ICON_COLEGIADO, 30));
+        mFinanceiro.setGraphic(Icons.getIcon(Icons.ICON_FINANCEIRO, 30));
+        mAbout.setGraphic(Icons.getIcon(Icons.ICON_ABOUT, 30));
+        mTools.setGraphic(Icons.getIcon(Icons.ICON_TOOLS, 30));
         mCadastros.setGraphic(Icons.getIcon(Icons.ICON_REGISTER, 30));
-        
+
     }
-    
+
     @FXML
     private void abrirFormFuncionario() throws Exception {
         new FuncionariosView().start(null);
-        
+
     }
 }

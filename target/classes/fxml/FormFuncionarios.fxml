@@ -133,17 +133,9 @@
                 </Tab>
             </tabs>
         </TabPane>
-      <Pane layoutY="632.0" prefHeight="64.0" prefWidth="1000.0" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Pane id="ToolBar" layoutY="632.0" prefHeight="80.0" prefWidth="1000.0" stylesheets="@../styles/formfuncionarios.css" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button id="botao_cancelar" layoutX="736.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="250.0" stylesheets="@../styles/formfuncionarios.css" text="Cancelar">
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="WHITE" />
-                        <Stop color="WHITE" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
                <font>
                   <Font name="Calibri Light" size="20.0" />
                </font>
@@ -151,7 +143,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="botao_salvar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="250.0" stylesheets="@../styles/formfuncionarios.css" text="Salvar" textFill="WHITE">
+            <Button id="botao_salvar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="250.0" stylesheets="@../styles/formfuncionarios.css" text="Salvar">
                <font>
                   <Font name="Calibri Light" size="20.0" />
                </font>
