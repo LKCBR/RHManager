@@ -20,7 +20,7 @@ public class Icons {
     public static String ICON_DELETE = "/images/icons/delete.png";
     public static String ICON_INFO = "/images/icons/info.png";
     public static String ICON_ADD = "/images/icons/add.png";
-    public static String ICON_EDIT = "/images/icons/Edit.png";
+    public static String ICON_EDIT = "/images/icons/edit.png";
     public static String ICON_MENU = "/images/icons/menu.png";
     public static String ICON_PRINCIPAL = "/images/icons/principal.png";
     public static String ICON_FINANCEIRO = "/images/icons/finances.png";

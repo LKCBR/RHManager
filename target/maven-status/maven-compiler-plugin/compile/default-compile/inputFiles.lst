@@ -4,6 +4,7 @@ C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\in
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\view\HomeView.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\util\MD5Util.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\cursos\PeriodoCurso.java
+C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\view\controller\HibernateCFGController.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\funcionarios\Enderecos.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\util\HibernateUtil.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\daoImpl\HibernateDAO.java
@@ -19,6 +20,7 @@ C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\cu
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\util\Constantes.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\cursos\Turma.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\controller\FuncionarioController.java
+C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\controller\HibernateController.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\util\CEPWebService.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\bean\instituicao\TiposSalasAndLabs.java
 C:\Users\lucas\Documents\GitHub\RHManager\src\main\java\br\com\rhmanager\FXMLController.java

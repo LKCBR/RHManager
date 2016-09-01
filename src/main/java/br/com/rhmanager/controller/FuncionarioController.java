@@ -20,8 +20,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
 
 /**
  *
@@ -66,6 +69,11 @@ public class FuncionarioController {
         } else {
             AlertUtil.alertAtencao("Atenção", "Nenhum Funcionário Selecionado!", "Selecione o Funcionário que deseja editar na tabela.");
         }
+    }
+
+    public void validar(TextField tfNome) {
+        ValidationSupport validationSupport = new ValidationSupport();
+        validationSupport.registerValidator(tfNome, Validator.createEmptyValidator("Campo Obrigatório"));
     }
 
 }

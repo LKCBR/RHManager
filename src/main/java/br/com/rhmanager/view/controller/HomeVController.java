@@ -5,12 +5,14 @@
  */
 package br.com.rhmanager.view.controller;
 
+import br.com.rhmanager.util.Constantes;
 import br.com.rhmanager.util.Icons;
 import br.com.rhmanager.view.FuncionariosView;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 
@@ -45,6 +47,12 @@ public class HomeVController implements Initializable {
     @FXML
     private Menu mAbout;
 
+    @FXML
+    private Label lbVersion;
+
+    @FXML
+    private Label lbUser;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -54,6 +62,8 @@ public class HomeVController implements Initializable {
         mAbout.setGraphic(Icons.getIcon(Icons.ICON_ABOUT, 30));
         mTools.setGraphic(Icons.getIcon(Icons.ICON_TOOLS, 30));
         mCadastros.setGraphic(Icons.getIcon(Icons.ICON_REGISTER, 30));
+
+        lbVersion.setText(Constantes.VERSION);
 
     }
 

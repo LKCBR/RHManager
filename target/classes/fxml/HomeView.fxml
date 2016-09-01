@@ -55,9 +55,9 @@
       </MenuBar>
       <ToolBar layoutY="373.0" prefHeight="0.0" prefWidth="600.0" style="-fx-border-color: #cccccc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <items>
-            <Label id="Usuario" prefHeight="17.0" prefWidth="183.0" />
+            <Label id="Usuario" fx:id="lbUser" alignment="CENTER" prefHeight="17.0" prefWidth="183.0" textFill="#3d3d3d" />
             <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="4.0" />
-            <Label id="versao" prefHeight="17.0" prefWidth="44.0" />
+            <Label id="versao" fx:id="lbVersion" alignment="CENTER" prefHeight="17.0" prefWidth="44.0" textAlignment="CENTER" textFill="#616161" />
             <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="1.0" />
          </items>
       </ToolBar>
