@@ -1,0 +1,11 @@
+.popup {
+    -fx-background-color : white, rgba(0, 0, 0, 0.65);
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 6, 5.5;
+    -fx-padding          : 5 10 5 10;
+    -fx-effect           : dropshadow(two-pass-box, rgba(0, 0, 0, 0.65), 10, 0.0, 0, 2)
+}
+.info-text {
+    -fx-alignment: center;
+    -fx-text-fill: white;
+}

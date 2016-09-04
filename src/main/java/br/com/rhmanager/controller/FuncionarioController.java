@@ -1,30 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.rhmanager.controller;
 
 import br.com.rhmanager.bean.Funcionario;
 import br.com.rhmanager.daoImpl.FuncionarioDAOImpl;
 import br.com.rhmanager.util.AlertUtil;
-import br.com.rhmanager.util.Icons;
+import br.com.rhmanager.util.ValidarUtil;
 import br.com.rhmanager.view.controller.FormFuncionariosVController;
-import br.com.rhmanager.view.controller.FuncionariosVController;
 import br.com.rhmanager.vo.FuncionarioVOTable;
+import impl.org.controlsfx.skin.NotificationBar;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
+import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
-import org.controlsfx.validation.ValidationSupport;
-import org.controlsfx.validation.Validator;
+import org.controlsfx.control.Notifications;
+import org.controlsfx.control.action.Action;
 
 /**
  *
@@ -71,9 +70,20 @@ public class FuncionarioController {
         }
     }
 
-    public void validar(TextField tfNome) {
-        ValidationSupport validationSupport = new ValidationSupport();
-        validationSupport.registerValidator(tfNome, Validator.createEmptyValidator("Campo Obrigatório"));
+    public void validar(TextField tfNome, TextField tfCPF, TextField tfRG, ComboBox cbSexo, TextField tfDtNasc, TextField tfPis, TextField tfINSS) {
+
+        boolean nome, cpf, rg, sexo, dtnasc, pis, inss;
+
+        nome = ValidarUtil.validarTextField(tfNome, 5);
+        cpf = ValidarUtil.validarTextField(tfCPF, 8);
+        rg = ValidarUtil.validarTextField(tfRG, 8);
+        sexo = ValidarUtil.validarComboBox(cbSexo);
+        dtnasc = ValidarUtil.validarDataNascimento(tfDtNasc);
+        pis = ValidarUtil.validarTextField(tfPis, 11);
+        inss = ValidarUtil.validarTextField(tfINSS, 11);
+
+        Notifications.create().title("TESTE").text("Bem Vindo Lucas Kulik Chropacz!").darkStyle().position(Pos.BOTTOM_RIGHT).showInformation();
+
     }
 
 }
