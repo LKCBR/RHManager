@@ -26,10 +26,8 @@ br\com\rhmanager\view\FormFuncionarioView.class
 br\com\rhmanager\daoImpl\HibernateDAO.class
 br\com\rhmanager\daoImpl\FuncionarioDAOImpl.class
 br\com\rhmanager\controller\FuncionarioController.class
-br\com\rhmanager\bean\funcionarios\Titulos.class
 br\com\rhmanager\controller\EnderecoController.class
 br\com\rhmanager\bean\instituicao\SalasAndLabs.class
-br\com\rhmanager\bean\funcionarios\Enderecos.class
 br\com\rhmanager\controller\HibernateController.class
 br\com\rhmanager\bean\Permissao.class
 br\com\rhmanager\TableView\FuncionarioTableView.class
@@ -44,4 +42,3 @@ br\com\rhmanager\bean\Curso.class
 br\com\rhmanager\util\MaskField$Position.class
 br\com\rhmanager\bean\Usuario.class
 br\com\rhmanager\bean\Funcionario.class
-br\com\rhmanager\view\controller\FormFuncionariosVController.class

@@ -5,19 +5,23 @@
  */
 package br.com.rhmanager.view.controller;
 
+import br.com.rhmanager.TableView.EnderecoTableView;
+import br.com.rhmanager.TableView.TelefoneTableView;
 import br.com.rhmanager.bean.Funcionario;
-import br.com.rhmanager.bean.funcionarios.Enderecos;
+import br.com.rhmanager.bean.funcionarios.Endereco;
+import br.com.rhmanager.bean.funcionarios.Telefone;
+import br.com.rhmanager.controller.EnderecoController;
 import br.com.rhmanager.controller.FuncionarioController;
+import br.com.rhmanager.controller.TelefonesController;
 import br.com.rhmanager.util.CEPWebService;
 import br.com.rhmanager.util.Constantes;
 import br.com.rhmanager.util.LetrasTextField;
 import br.com.rhmanager.vo.EnderecoVOTable;
+import br.com.rhmanager.vo.TelefoneVOTable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -27,7 +31,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-
 
 /**
  * FXML Controller class
@@ -42,16 +45,20 @@ public class FormFuncionariosVController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    //TABLE VIEWS
+    EnderecoTableView enderecoTableView;
+    TelefoneTableView telefoneTableView;
+
+    //CONTROLLERS
+    EnderecoController enderecoController;
     FuncionarioController funcionarioController;
+    TelefonesController telefoneController;
 
-    List<Enderecos> enderecos = new ArrayList();
+    //LISTS    
+    List<Endereco> enderecos = new ArrayList();
+    List<Telefone> telefones = new ArrayList();
 
-    Enderecos endereco = new Enderecos();
-
-    ObservableList observableList;
-
-    TableColumn columnCidade;
-
+    //OBJETOS
     private Funcionario funcionario;
 
     /*
@@ -100,19 +107,22 @@ public class FormFuncionariosVController implements Initializable {
     private LetrasTextField tfCidade;
 
     @FXML
+    private TextField tfComplemento;
+
+    @FXML
     private TableView<EnderecoVOTable> tvEnderecos = new TableView();
 
     @FXML
-    private TableColumn tcCidade;
+    private TableColumn<EnderecoVOTable, String> tcCidade;
 
     @FXML
-    private TableColumn tcBairro = new TableColumn();
+    private TableColumn<EnderecoVOTable, String> tcBairro = new TableColumn();
 
     @FXML
-    private TableColumn tcRua = new TableColumn();
+    private TableColumn<EnderecoVOTable, String> tcRua = new TableColumn();
 
     @FXML
-    private TableColumn tcNumero = new TableColumn();
+    private TableColumn<EnderecoVOTable, String> tcNumero = new TableColumn();
 
     @FXML
     private Button btAddEndereco;
@@ -130,10 +140,10 @@ public class FormFuncionariosVController implements Initializable {
     private TextField tfTelefone;
 
     @FXML
-    private TableView tvTelefones = new TableView();
+    private TableView<TelefoneVOTable> tvTelefones = new TableView();
 
     @FXML
-    private TableColumn tcTelefone = new TableColumn();
+    private TableColumn<TelefoneVOTable, String> tcTelefone = new TableColumn<>();
 
     @FXML
     private Button btInserirTelefone;
@@ -229,25 +239,33 @@ public class FormFuncionariosVController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // CONTROLLER
         funcionarioController = new FuncionarioController();
+        enderecoController = new EnderecoController();
+        telefoneController = new TelefonesController();
 
+        //TABLE VIEW
+        enderecoTableView = new EnderecoTableView(tvEnderecos, tcCidade, tcBairro, tcRua, tcNumero);
+        telefoneTableView = new TelefoneTableView(tvTelefones, tcTelefone);
+
+        //MÉTODOS
+        enderecoController.listarEnderecos(enderecoTableView, enderecos);
+        telefoneController.listarTelefones(telefoneTableView, telefones);
+
+        //PREDEFINICOES
         cbSexo.getItems().addAll("MASCULINO", "FEMININO");
         cbEstados.getItems().addAll(Constantes.ESTADOS);
-
-        endereco.setBairroEnd("BAIRROS");
-        endereco.setCepEnd("CEP");
-        endereco.setCidadeEnd("CIDADE");
-        endereco.setLogradouroEnd("LOGRA");
-
-        enderecos.add(endereco);
-        observableList = FXCollections.observableArrayList(enderecos);
 
         tfNome.setMaxlength(120);
         tfCidade.setMaxlength(31);
 
     }
 
+    /*
+    
+    MÉTODOS
+    
+     */
     @FXML
     private void getEnd() {
 
@@ -261,9 +279,51 @@ public class FormFuncionariosVController implements Initializable {
 
     @FXML
     private void salvarFuncionario() {
-        funcionarioController.validar(tfNome, tfCPF, tfRG, cbSexo, dtNasc, tfPIS, tfINSS);
+        funcionarioController.validar(tfNome, tfCPF, tfRG, cbSexo,
+                dtNasc, tfPIS, tfINSS, tvEnderecos, tvCargo, tvTelefones,
+                tvTitulos, tfEmail, tfConta, tfAgencia, cbAgenciaBancaria, tbAcesso, tfEmailAcesso, pwSenha);
     }
 
+    @FXML
+    private void botaoAcesso() {
+        funcionarioController.acessoToggleButton(tbAcesso);
+    }
+
+    @FXML
+    private void botaoAtivo() {
+        funcionarioController.acessoToggleButton(tbAtivo);
+    }
+
+    @FXML
+    private void inserirEndereco() {
+        enderecoController.addEndereco(enderecos, tfCEP, tfRua, cbEstados, tfCidade,
+                tfNumero, tfComplemento, tfBairro);
+        enderecoController.listarEnderecos(enderecoTableView, enderecos);
+    }
+
+    @FXML
+    private void removerEndereco() {
+        enderecoController.removerEndereco(enderecos, tvEnderecos);
+        enderecoController.listarEnderecos(enderecoTableView, enderecos);
+    }
+
+    @FXML
+    private void inserirTelefone() {
+        telefoneController.inserirTelefone(tvTelefones, tfTelefone, telefones);
+        telefoneController.listarTelefones(telefoneTableView, telefones);
+    }
+    
+    @FXML
+    private void removerTelefone(){
+        telefoneController.removerTelefone(tvTelefones, telefones);
+        telefoneController.listarTelefones(telefoneTableView, telefones);
+    }
+
+    /*
+    
+    GET AND SET
+    
+     */
     public TextField getTfCEP() {
         return tfCEP;
     }

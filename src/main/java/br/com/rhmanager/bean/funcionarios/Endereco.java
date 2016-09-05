@@ -18,12 +18,12 @@ import javax.persistence.TemporalType;
  * @author lucas
  */
 @Entity
-public class Enderecos implements Serializable {
+public class Endereco implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idEndereco", nullable = false, unique = true)
-    private int idEndereco;
+    private Long idEndereco;
     @Column(name = "logradouroEnd", nullable = false, length = 130, columnDefinition = "VARCHAR(130)")
     private String logradouroEnd;
     @Column(name = "numeroEnd", nullable = false, columnDefinition = "VARCHAR(10)")
@@ -49,11 +49,11 @@ public class Enderecos implements Serializable {
     @JoinColumn(name = "funcionario")
     private Funcionario enderecos_funcionario;
 
-    public int getIdEndereco() {
+    public Long getIdEndereco() {
         return idEndereco;
     }
 
-    public void setIdEndereco(int idEndereco) {
+    public void setIdEndereco(Long idEndereco) {
         this.idEndereco = idEndereco;
     }
 

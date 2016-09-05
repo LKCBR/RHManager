@@ -6,7 +6,6 @@
 package br.com.rhmanager.util;
 
 import java.util.Calendar;
-import java.util.Locale;
 
 /**
  *

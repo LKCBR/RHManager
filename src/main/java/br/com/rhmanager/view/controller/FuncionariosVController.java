@@ -117,6 +117,7 @@ public class FuncionariosVController implements Initializable {
 
     }
 
+    
     Runnable carregarTabela = new Runnable() {
         @Override
         public void run() {

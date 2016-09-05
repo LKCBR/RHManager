@@ -29,8 +29,9 @@
         
         <!--Funcionarios-->
         <mapping class="br.com.rhmanager.bean.funcionarios.Cargos"/>
-        <mapping class="br.com.rhmanager.bean.funcionarios.Enderecos"/>
-        <mapping class="br.com.rhmanager.bean.funcionarios.Titulos"/>
+        <mapping class="br.com.rhmanager.bean.funcionarios.Endereco"/>
+        <mapping class="br.com.rhmanager.bean.funcionarios.Titulo"/>
+        <mapping class="br.com.rhmanager.bean.funcionarios.Telefone"/>
         
         <!-- Curso -->
         <mapping class="br.com.rhmanager.bean.Curso"/>

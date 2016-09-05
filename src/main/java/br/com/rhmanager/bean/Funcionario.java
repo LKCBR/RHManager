@@ -3,10 +3,12 @@ package br.com.rhmanager.bean;
 import br.com.rhmanager.bean.funcionarios.Cargos;
 import br.com.rhmanager.bean.cursos.Colegiado;
 import br.com.rhmanager.bean.cursos.Horario;
-import br.com.rhmanager.bean.funcionarios.Enderecos;
-import br.com.rhmanager.bean.funcionarios.Titulos;
+import br.com.rhmanager.bean.funcionarios.Endereco;
+import br.com.rhmanager.bean.funcionarios.Telefone;
+import br.com.rhmanager.bean.funcionarios.Titulo;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -60,11 +62,14 @@ public class Funcionario implements Serializable {
     @JoinColumn(name = "cargo")
     private Cargos cargo;
 
-    @OneToMany(mappedBy = "titulos")
-    private List<Titulos> titulos;
+    @OneToMany(mappedBy = "telefone_funcionario", cascade = CascadeType.ALL)
+    private List<Telefone> telefones;
 
-    @OneToMany(mappedBy = "enderecos_funcionario")
-    private List<Enderecos> enderecos;
+    @OneToMany(mappedBy = "titulos", cascade = CascadeType.ALL)
+    private List<Titulo> titulos;
+
+    @OneToMany(mappedBy = "enderecos_funcionario", cascade = CascadeType.ALL)
+    private List<Endereco> enderecos;
 
     public Long getIdFuncionario() {
         return idFuncionario;
@@ -154,20 +159,28 @@ public class Funcionario implements Serializable {
         this.cargo = cargo;
     }
 
-    public List<Titulos> getTitulos() {
+    public List<Titulo> getTitulos() {
         return titulos;
     }
 
-    public void setTitulos(List<Titulos> titulos) {
+    public void setTitulos(List<Titulo> titulos) {
         this.titulos = titulos;
     }
 
-    public List<Enderecos> getEnderecos() {
+    public List<Endereco> getEnderecos() {
         return enderecos;
     }
 
-    public void setEnderecos(List<Enderecos> enderecos) {
+    public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
+    }
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
     }
 
 }

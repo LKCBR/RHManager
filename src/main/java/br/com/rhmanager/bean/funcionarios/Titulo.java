@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
  * @author lucas
  */
 @Entity
-public class Titulos implements Serializable {
+public class Titulo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

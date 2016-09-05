@@ -15,7 +15,10 @@ public class EnderecoVOTable {
     private SimpleStringProperty numero;
 
     public EnderecoVOTable(Long id, String cidade, String bairro, String rua, String numero) {
-        this.id = new SimpleStringProperty(id.toString());
+        if (id != null) {
+            this.id = new SimpleStringProperty(id.toString());
+        }
+
         this.cidade = new SimpleStringProperty(cidade);
         this.bairro = new SimpleStringProperty(bairro);
         this.rua = new SimpleStringProperty(rua);

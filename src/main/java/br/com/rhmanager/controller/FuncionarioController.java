@@ -6,24 +6,21 @@ import br.com.rhmanager.util.AlertUtil;
 import br.com.rhmanager.util.ValidarUtil;
 import br.com.rhmanager.view.controller.FormFuncionariosVController;
 import br.com.rhmanager.vo.FuncionarioVOTable;
-import impl.org.controlsfx.skin.NotificationBar;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
-import org.controlsfx.control.action.Action;
 
 /**
  *
@@ -70,9 +67,11 @@ public class FuncionarioController {
         }
     }
 
-    public void validar(TextField tfNome, TextField tfCPF, TextField tfRG, ComboBox cbSexo, TextField tfDtNasc, TextField tfPis, TextField tfINSS) {
+    public void validar(TextField tfNome, TextField tfCPF, TextField tfRG, ComboBox cbSexo, TextField tfDtNasc, TextField tfPis, TextField tfINSS,
+            TableView tvEnderecos, TableView tvCargo, TableView tvTelefone, TableView tvTitulos, TextField tfEmail, TextField tfConta,
+            TextField tfAgencia, ComboBox cbAgencia, ToggleButton tbAcesso, TextField tfEmailAcesso, PasswordField pfSenha) {
 
-        boolean nome, cpf, rg, sexo, dtnasc, pis, inss;
+        boolean nome, cpf, rg, sexo, dtnasc, pis, inss, enderecos, telefone, titulos, cargos, email, contaBancaria, acesso;
 
         nome = ValidarUtil.validarTextField(tfNome, 5);
         cpf = ValidarUtil.validarTextField(tfCPF, 8);
@@ -81,9 +80,32 @@ public class FuncionarioController {
         dtnasc = ValidarUtil.validarDataNascimento(tfDtNasc);
         pis = ValidarUtil.validarTextField(tfPis, 11);
         inss = ValidarUtil.validarTextField(tfINSS, 11);
+        enderecos = ValidarUtil.validarTableView(tvEnderecos);
+        telefone = ValidarUtil.validarTableView(tvTelefone);
+        titulos = ValidarUtil.validarTableView(tvTitulos);
+        cargos = ValidarUtil.validarTableView(tvCargo);
+        email = ValidarUtil.validarEmail(tfEmail);
+        contaBancaria = ValidarUtil.validarContaBancaria(tfConta, tfAgencia, cbAgencia);
+        acesso = ValidarUtil.acessoEmailSenha(tfEmailAcesso, pfSenha, tbAcesso);
 
         Notifications.create().title("TESTE").text("Bem Vindo Lucas Kulik Chropacz!").darkStyle().position(Pos.BOTTOM_RIGHT).showInformation();
 
+    }
+
+    public void acessoToggleButton(ToggleButton tbAcesso) {
+        if (tbAcesso.isSelected()) {
+            tbAcesso.setText("Acesso Autorizado");
+        } else {
+            tbAcesso.setText("Acesso não Autorizado");
+        }
+    }
+
+    public void botaoAtivo(ToggleButton tbAtivo) {
+        if (tbAtivo.isSelected()) {
+            tbAtivo.setText("Ativo");
+        } else {
+            tbAtivo.setText("Desativado");
+        }
     }
 
 }
