@@ -1,20 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.rhmanager.controller;
 
 import br.com.rhmanager.TableView.CargoTableView;
 import br.com.rhmanager.bean.funcionarios.Cargo;
 
 import br.com.rhmanager.daoImpl.CargoDAOImpl;
+import br.com.rhmanager.util.AlertUtil;
+import br.com.rhmanager.vo.CargoVOTable;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.util.Duration;
-import javax.management.Notification;
 import org.controlsfx.control.Notifications;
 
 /**
@@ -65,17 +62,50 @@ public class CargoController {
 
     public void inserirCargo(List<Cargo> cargos, ComboBox cbCargo) {
         if (!cbCargo.getSelectionModel().isEmpty()) {
-
             String tituloCargo = cbCargo.getSelectionModel().getSelectedItem().toString();
 
-            CargoDAOImpl cargoDAOImpl = new CargoDAOImpl();
-            Cargo cargo = cargoDAOImpl.getCargoByName(tituloCargo);
+            boolean verify = true;
+            for (Cargo cargo : cargos) {
+                if (cargo.getTitulo().equals(tituloCargo)) {
+                    verify = false;
+                    break;
+                } else {
+                    verify = true;
+                }
+            }
 
-            cargos.add(cargo);
+            if (verify) {
+                CargoDAOImpl cargoDAOImpl = new CargoDAOImpl();
+                Cargo cargo = cargoDAOImpl.getCargoByName(tituloCargo);
 
-            Notifications.create().title("Sucesso").text("Cargo de " + cargo.getTitulo() + " adicionado com sucesso!").hideAfter(Duration.seconds(20)).showInformation();
+                cargos.add(cargo);
+
+                Notifications.create().title("Sucesso").text("Cargo de " + cargo.getTitulo() + " adicionado com sucesso!").hideAfter(Duration.seconds(20)).showInformation();
+                cbCargo.getSelectionModel().clearSelection();
+            } else {
+                AlertUtil.erro("Erro", "Este cargo já foi adicionado a este Funcionário!", "");
+            }
+        }else{
+            AlertUtil.alertAtencao("Atenção", "Selecione o cargo que deseja inserir.", "Caso não esteja presente no componente de seleção adicione um cargo novo Pressionando o Botão Novo Cargo. ");
         }
 
+    }
+
+    public void removerCargo(TableView<CargoVOTable> tvCargo, List<Cargo> cargos) {
+        if (tvCargo.getSelectionModel().getSelectedItem() != null) {
+            CargoVOTable cargoVOTable = tvCargo.getSelectionModel().getSelectedItem();
+
+            for (Cargo cargo : cargos) {
+                if (cargo.getIdCargos().toString().equals(cargoVOTable.getId())) {
+                    cargos.remove(cargo);
+
+                    Notifications.create().title("Sucesso").text("Cargo removido com sucesso!").hideAfter(Duration.seconds(20)).showInformation();
+
+                    break;
+                }
+            }
+
+        }
     }
 
 }

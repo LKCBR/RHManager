@@ -27,6 +27,9 @@ public class Icons {
     public static String ICON_COLEGIADO = "/images/icons/colegiado.png";
     public static String ICON_ABOUT = "/images/icons/about.png";
     public static String ICON_TOOLS = "/images/icons/tools.png";
+    public static String ICON_UPLOAD = "/images/icons/upload.png";
+    public static String ICON_DOWNLOAD = "/images/icons/download.png";
+    public static String ICON_ADD_ = "/images/icons/add_.png";
 
     public static ImageView getIcon(String caminho, double tamanho) {
         ImageView icon = new ImageView(caminho);

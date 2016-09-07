@@ -22,7 +22,9 @@ import br.com.rhmanager.controller.TelefonesController;
 import br.com.rhmanager.controller.TituloController;
 import br.com.rhmanager.util.CEPWebService;
 import br.com.rhmanager.util.Constantes;
+import br.com.rhmanager.util.Icons;
 import br.com.rhmanager.util.LetrasTextField;
+import br.com.rhmanager.vo.CargoVOTable;
 import br.com.rhmanager.vo.EnderecoVOTable;
 import br.com.rhmanager.vo.TelefoneVOTable;
 import br.com.rhmanager.vo.TituloVOTable;
@@ -211,7 +213,7 @@ public class FormFuncionariosVController implements Initializable {
     private Button btRemoverCargo;
 
     @FXML
-    private TableView tvCargo;
+    private TableView<CargoVOTable> tvCargo = new TableView<>();
 
     @FXML
     private TableColumn tcCargo = new TableColumn();
@@ -255,9 +257,20 @@ public class FormFuncionariosVController implements Initializable {
 
     @FXML
     private ToggleButton tbAcesso;
-
+lu
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        btAddEndereco.setGraphic(Icons.getIcon(Icons.ICON_DOWNLOAD, 22));
+        btInserirTitulo.setGraphic(Icons.getIcon(Icons.ICON_DOWNLOAD, 22));
+        btInserirTelefone.setGraphic(Icons.getIcon(Icons.ICON_DOWNLOAD, 22));
+        btInserirCargo.setGraphic(Icons.getIcon(Icons.ICON_DOWNLOAD, 22));
+        btRemoverCargo.setGraphic(Icons.getIcon(Icons.ICON_UPLOAD, 22));
+        btRemoverEndereco.setGraphic(Icons.getIcon(Icons.ICON_UPLOAD, 22));
+        btRemoverTelefone.setGraphic(Icons.getIcon(Icons.ICON_UPLOAD, 22));
+        btRemoverTitulo.setGraphic(Icons.getIcon(Icons.ICON_UPLOAD, 22));
+        btNovoCargo.setGraphic(Icons.getIcon(Icons.ICON_ADD_, 22));
+        
         // CONTROLLER
         funcionarioController = new FuncionarioController();
         enderecoController = new EnderecoController();
@@ -364,6 +377,12 @@ public class FormFuncionariosVController implements Initializable {
     @FXML
     private void adicionarCargo() {
         cargoController.inserirCargo(lCargos, cbCargo);
+        cargoController.preencherTable(cargoTableView, lCargos);
+    }
+
+    @FXML
+    private void removerCargo() {
+        cargoController.removerCargo(tvCargo, lCargos);
         cargoController.preencherTable(cargoTableView, lCargos);
     }
 

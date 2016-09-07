@@ -167,8 +167,8 @@
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                     </columnResizePolicy>
                                 </TableView>
-                                <Button fx:id="btAddEndereco" onAction="#inserirEndereco"  layoutX="34.0" layoutY="286.0" mnemonicParsing="false" text="Inserir Endereço" />
-                                <Button fx:id="btRemoverEndereco" onAction="#removerEndereco"  layoutX="169.0" layoutY="286.0" mnemonicParsing="false" text="Remover Endereço" />
+                                <Button fx:id="btAddEndereco" layoutX="20.0" layoutY="301.0" mnemonicParsing="false" onAction="#inserirEndereco" text="Inserir Endereço" />
+                                <Button fx:id="btRemoverEndereco" layoutX="198.0" layoutY="301.0" mnemonicParsing="false" onAction="#removerEndereco" text="Remover Endereço" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -188,9 +188,9 @@
                                         <Font size="14.0" />
                                     </font>
                                 </Label>
-                                <MaskField mask="(DD) DDDD-DDDDD" fx:id="tfTelefone" layoutX="80.0" layoutY="55.0" prefHeight="30.0" prefWidth="223.0" />
-                                <Button fx:id="btInserirTelefone" onAction="#inserirTelefone"  layoutX="17.0" layoutY="107.0" mnemonicParsing="false" text="Inserir Telefone" />
-                                <Button fx:id="btRemoverTelefone" onAction="#removerTelefone"  layoutX="150.0" layoutY="107.0" mnemonicParsing="false" text="Remover Telefone" />
+                                <MaskField fx:id="tfTelefone" layoutX="80.0" layoutY="55.0" mask="(DD) DDDD-DDDDD" prefHeight="30.0" prefWidth="223.0" />
+                                <Button fx:id="btInserirTelefone" layoutX="17.0" layoutY="107.0" mnemonicParsing="false" onAction="#inserirTelefone" text="Inserir Telefone" />
+                                <Button fx:id="btRemoverTelefone" layoutX="183.0" layoutY="107.0" mnemonicParsing="false" onAction="#removerTelefone" text="Remover Telefone" />
                                 <TableView fx:id="tvTelefones" layoutX="17.0" layoutY="156.0" prefHeight="200.0" prefWidth="298.0">
                                     <columns>
                                         <TableColumn fx:id="tcTelefone" prefWidth="75.0" text="Telefone" />
@@ -241,8 +241,8 @@
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                     </columnResizePolicy>
                                 </TableView>
-                                <Button fx:id="btInserirTitulo" onAction="#inserirTitulo"  layoutX="23.0" layoutY="214.0" mnemonicParsing="false" text="Inserir Título" />
-                                <Button fx:id="btRemoverTitulo" onAction="#removerTitulo"  layoutX="142.0" layoutY="214.0" mnemonicParsing="false" text="Remover Título" />
+                                <Button fx:id="btInserirTitulo" layoutX="20.0" layoutY="214.0" mnemonicParsing="false" onAction="#inserirTitulo" text="Inserir Título" />
+                                <Button fx:id="btRemoverTitulo" layoutX="207.0" layoutY="214.0" mnemonicParsing="false" onAction="#removerTitulo" text="Remover Título" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -257,7 +257,7 @@
                                     </font>
                                 </Label>
                                 <ComboBox fx:id="cbCargo" layoutX="61.0" layoutY="9.0" prefHeight="30.0" prefWidth="368.0" />
-                                <Button fx:id="btNovoCargo" layoutX="437.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" text="Novo Cargo" />
+                                <Button fx:id="btNovoCargo" graphicTextGap="22.0" layoutX="437.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="153.0" text="Novo Cargo" />
                                 <TableView fx:id="tvCargo" layoutX="14.0" layoutY="121.0" prefHeight="321.0" prefWidth="589.0">
                                     <columns>
                                         <TableColumn fx:id="tcCargo" prefWidth="75.0" text="Cargo" />
@@ -266,8 +266,8 @@
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                     </columnResizePolicy>
                                 </TableView>
-                                <Button fx:id="btInserirCargo" onAction="#adicionarCargo"  layoutX="14.0" layoutY="82.0" mnemonicParsing="false" text="Inserir Cargo" />
-                                <Button fx:id="btRemoverCargo" layoutX="131.0" layoutY="82.0" mnemonicParsing="false" text="Remover Cargo" />
+                                <Button fx:id="btInserirCargo" graphicTextGap="22.0" layoutX="14.0" layoutY="82.0" mnemonicParsing="false" onAction="#adicionarCargo" text="Inserir Cargo" />
+                                <Button fx:id="btRemoverCargo" graphicTextGap="22.0" layoutX="187.0" layoutY="82.0" mnemonicParsing="false" onAction="#removerCargo" text="Remover Cargo" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -302,7 +302,7 @@
                                     </font>
                                 </Label>
                                 <ComboBox fx:id="cbAgenciaBancaria" layoutX="295.0" layoutY="179.0" prefHeight="30.0" prefWidth="273.0" />
-                                <Button fx:id="btAdicionarAgencia" layoutX="574.0" layoutY="179.0" mnemonicParsing="false" text="Novo Banco" />
+                                <Button fx:id="btAdicionarAgencia" layoutX="574.0" layoutY="179.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Novo Banco" />
                                 <Label layoutX="228.0" layoutY="233.0" text="Agência:">
                                     <font>
                                         <Font size="14.0" />
