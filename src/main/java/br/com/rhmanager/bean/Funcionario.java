@@ -1,8 +1,9 @@
 package br.com.rhmanager.bean;
 
-import br.com.rhmanager.bean.funcionarios.Cargos;
+
 import br.com.rhmanager.bean.cursos.Colegiado;
 import br.com.rhmanager.bean.cursos.Horario;
+import br.com.rhmanager.bean.funcionarios.Cargo;
 import br.com.rhmanager.bean.funcionarios.Endereco;
 import br.com.rhmanager.bean.funcionarios.Telefone;
 import br.com.rhmanager.bean.funcionarios.Titulo;
@@ -60,7 +61,7 @@ public class Funcionario implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "cargo")
-    private Cargos cargo;
+    private Cargo cargo;
 
     @OneToMany(mappedBy = "telefone_funcionario", cascade = CascadeType.ALL)
     private List<Telefone> telefones;
@@ -151,11 +152,11 @@ public class Funcionario implements Serializable {
         this.horarios = horarios;
     }
 
-    public Cargos getCargo() {
+    public Cargo getCargo() {
         return cargo;
     }
 
-    public void setCargo(Cargos cargo) {
+    public void setCargo(Cargo cargo) {
         this.cargo = cargo;
     }
 
@@ -182,5 +183,7 @@ public class Funcionario implements Serializable {
     public void setTelefones(List<Telefone> telefones) {
         this.telefones = telefones;
     }
+    
+    
 
 }

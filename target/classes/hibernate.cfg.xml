@@ -28,7 +28,7 @@
         <mapping class="br.com.rhmanager.bean.instituicao.TiposSalasAndLabs"/>
         
         <!--Funcionarios-->
-        <mapping class="br.com.rhmanager.bean.funcionarios.Cargos"/>
+        <mapping class="br.com.rhmanager.bean.funcionarios.Cargo"/>
         <mapping class="br.com.rhmanager.bean.funcionarios.Endereco"/>
         <mapping class="br.com.rhmanager.bean.funcionarios.Titulo"/>
         <mapping class="br.com.rhmanager.bean.funcionarios.Telefone"/>

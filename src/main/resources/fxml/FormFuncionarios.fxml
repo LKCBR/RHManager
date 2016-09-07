@@ -241,8 +241,8 @@
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                     </columnResizePolicy>
                                 </TableView>
-                                <Button fx:id="btInserirTitulo" layoutX="23.0" layoutY="214.0" mnemonicParsing="false" text="Inserir Título" />
-                                <Button fx:id="btRemoverTitulo" layoutX="142.0" layoutY="214.0" mnemonicParsing="false" text="Remover Título" />
+                                <Button fx:id="btInserirTitulo" onAction="#inserirTitulo"  layoutX="23.0" layoutY="214.0" mnemonicParsing="false" text="Inserir Título" />
+                                <Button fx:id="btRemoverTitulo" onAction="#removerTitulo"  layoutX="142.0" layoutY="214.0" mnemonicParsing="false" text="Remover Título" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -266,7 +266,7 @@
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                     </columnResizePolicy>
                                 </TableView>
-                                <Button fx:id="btInserirCargo" layoutX="14.0" layoutY="82.0" mnemonicParsing="false" text="Inserir Cargo" />
+                                <Button fx:id="btInserirCargo" onAction="#adicionarCargo"  layoutX="14.0" layoutY="82.0" mnemonicParsing="false" text="Inserir Cargo" />
                                 <Button fx:id="btRemoverCargo" layoutX="131.0" layoutY="82.0" mnemonicParsing="false" text="Remover Cargo" />
                             </children>
                         </AnchorPane>

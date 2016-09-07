@@ -32,4 +32,39 @@ public class Titulo implements Serializable {
     @JoinColumn(name = "funcionario")
     private Funcionario titulos;
 
+    public Long getIdTitulo() {
+        return idTitulo;
+    }
+
+    public void setIdTitulo(Long idTitulo) {
+        this.idTitulo = idTitulo;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getTituloem() {
+        return tituloem;
+    }
+
+    public void setTituloem(String tituloem) {
+        this.tituloem = tituloem;
+    }
+
+    public Funcionario getTitulos() {
+        return titulos;
+    }
+
+    public void setTitulos(Funcionario titulos) {
+        this.titulos = titulos;
+    }
+    
+    
+    
+
 }

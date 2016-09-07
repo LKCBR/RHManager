@@ -16,20 +16,21 @@
 
 #button_entrar:hover {
     -fx-background-color: 
-        linear-gradient(to bottom, #1ab0ec, #1a92c2);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#1ab0ec, endColorstr=#1a92c2);
+        linear-gradient(to bottom, #1ab0ec, #1a92c2);
+    filter:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#1ab0ec, endColorstr=#1a92c2);
     -fx-font-color: #fff;
     box-shadow: 0 10px 6px -6px #777;
 }
 
 #rodape{
     -fx-background-color: 
-        linear-gradient(to bottom, #f4f5f5, #dfdddd);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
+        linear-gradient(to bottom, #f4f5f5, #dfdddd);filter:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
     -fx-border-color:#cccccc;
 }
 
 #barra_sup{
     -fx-background-color: 
-        linear-gradient(to bottom, #f4f5f5, #dfdddd);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
+        linear-gradient(to bottom, #f4f5f5, #dfdddd);filter:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
     -fx-border-color:#cccccc;
 
 

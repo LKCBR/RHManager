@@ -54,7 +54,7 @@ public class FuncionarioTableView {
                     funcionario.getIdFuncionario(),
                     funcionario.getNome(),
                     funcionario.getCpf(),
-                    funcionario.getCargo().toString(),
+                    funcionario.getCargo().getTitulo(),
                     funcionario.getStatus());
             oDados.add(fvot);
         }

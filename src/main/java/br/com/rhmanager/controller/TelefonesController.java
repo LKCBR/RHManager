@@ -7,11 +7,14 @@ package br.com.rhmanager.controller;
 
 import br.com.rhmanager.TableView.TelefoneTableView;
 import br.com.rhmanager.bean.funcionarios.Telefone;
+import br.com.rhmanager.util.AlertUtil;
 import br.com.rhmanager.util.ValidarUtil;
 import br.com.rhmanager.vo.TelefoneVOTable;
 import java.util.List;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 /**
  *
@@ -55,14 +58,22 @@ public class TelefonesController {
 
     }
 
-    public void removerTelefone(TableView<TelefoneVOTable> tvTelefones, List<Telefone> telefones) {
+    public void removerTelefone(TableView<TelefoneVOTable> tvTelefones, List<Telefone> telefones, TelefoneTableView telefoneTableView) {
+
+        TelefoneVOTable telefoneVOTable = tvTelefones.getSelectionModel().getSelectedItem();
         if (tvTelefones.getSelectionModel().getSelectedItem() != null) {
             for (Telefone telefone : telefones) {
-                if (telefone.getNumTelefone().equals(tvTelefones.getSelectionModel().getSelectedItem().getNumero().replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("-", "").replaceAll(" ", ""))) {
+                String num = telefoneVOTable.getNumero().replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("-", "").replaceAll(" ", "");
+                if (telefone.getNumTelefone().equals(num)) {
                     telefones.remove(telefone);
+                    Notifications.create().title("Sucesso!").text("Telefone Removido Com Sucesso!").hideAfter(Duration.seconds(20)).showConfirm();
+                    break;
                 }
             }
+        } else {
+            AlertUtil.alertAtencao("Atenção", "Não foi selecionado nenhum endereço na tabela!", "Selecione na tabela o endereço que deseja remover!");
         }
+
     }
 
 }

@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
  * @author lucas
  */
 @Entity
-public class Cargos implements Serializable {
+public class Cargo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,32 @@ public class Cargos implements Serializable {
 
     @Column(name = "titulo", nullable = false, unique = true)
     private String titulo;
-    
+
     @OneToMany(mappedBy = "cargo")
     private List<Funcionario> funcionarios;
-    
+
+    public Long getIdCargos() {
+        return idCargos;
+    }
+
+    public void setIdCargos(Long idCargos) {
+        this.idCargos = idCargos;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
 
 }
