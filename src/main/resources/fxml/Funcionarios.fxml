@@ -16,17 +16,17 @@
     <children>
         <ToolBar layoutY="25.0" prefHeight="63.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
             <items>
-                <TextField alignment="CENTER" prefHeight="30.0" prefWidth="347.0" promptText="Procure pelo Nome">
+                <TextField fx:id="tfNome" alignment="CENTER" prefHeight="30.0" prefWidth="347.0" promptText="Procure pelo Nome">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <TextField alignment="CENTER" prefHeight="30.0" prefWidth="266.0" promptText="Procure pelo CPF" style="-fx-margin-left: 15;">
+                <TextField fx:id="tfCPF" alignment="CENTER" prefHeight="30.0" prefWidth="266.0" promptText="Procure pelo CPF" style="-fx-margin-left: 15;">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <ComboBox prefHeight="30.0" prefWidth="289.0" promptText="Selecione um Cargo" style="-fx-font-size: 14;" />
+                <ComboBox fx:id="cbCargos" prefHeight="30.0" prefWidth="289.0" promptText="Selecione um Cargo" style="-fx-font-size: 14;" />
             </items>
         </ToolBar>
         <TableView fx:id="tvFuncionarios" layoutX="16.0" layoutY="88.0" prefHeight="296.0" prefWidth="902.0" style="-fx-font-size: 14;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="128.0">

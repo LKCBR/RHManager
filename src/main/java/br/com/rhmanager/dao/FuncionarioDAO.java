@@ -6,6 +6,7 @@
 package br.com.rhmanager.dao;
 
 import br.com.rhmanager.bean.Funcionario;
+import br.com.rhmanager.bean.funcionarios.Cargo;
 import java.util.List;
 
 /**
@@ -19,5 +20,7 @@ public interface FuncionarioDAO {
     public Funcionario getFuncionarioByCpf(String cpf);
 
     public Funcionario getFuncionarioById(Long id);
+
+    public List<Funcionario> getFuncionariosBusca(String nome, String cpf, Cargo cargo);
 
 }

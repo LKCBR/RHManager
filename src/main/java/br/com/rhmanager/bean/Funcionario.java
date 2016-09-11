@@ -1,6 +1,5 @@
 package br.com.rhmanager.bean;
 
-
 import br.com.rhmanager.bean.cursos.Colegiado;
 import br.com.rhmanager.bean.cursos.Horario;
 import br.com.rhmanager.bean.funcionarios.Cargo;
@@ -8,17 +7,23 @@ import br.com.rhmanager.bean.funcionarios.Endereco;
 import br.com.rhmanager.bean.funcionarios.Telefone;
 import br.com.rhmanager.bean.funcionarios.Titulo;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -41,14 +46,33 @@ public class Funcionario implements Serializable {
     @Column(name = "rg")
     private String rg;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "dt_nascimento")
-    private String dt_nascimento;
+    private Calendar dt_nascimento;
 
     @Column(name = "email")
     private String email;
 
     @Column(name = "status")
     private String status;
+
+    @Column(name = "agencia")
+    private String agencia;
+
+    @Column(name = "conta")
+    private String conta;
+
+    @Column(name = "sexo")
+    private String sexo;
+
+    @Column(name = "pis", unique = true)
+    private String pis;
+
+    @Column(name = "inss", unique = true)
+    private String inss;
+
+    @Column(name = "ativo")
+    private int ativo;
 
     @OneToMany(mappedBy = "coordinator")
     private List<Curso> cursos_coordenados;
@@ -59,9 +83,15 @@ public class Funcionario implements Serializable {
     @OneToMany(mappedBy = "professor_horario")
     private List<Horario> horarios;
 
-    @ManyToOne
-    @JoinColumn(name = "cargo")
-    private Cargo cargo;
+    @ManyToMany()
+    @JoinColumn(name = "cargos")
+    @JoinTable(name = "funcionario_has_cargos", joinColumns
+            = {
+                @JoinColumn(name = "idFuncionario")}, inverseJoinColumns
+            = {
+                @JoinColumn(name = "idCargos")})
+
+    private List<Cargo> cargos;
 
     @OneToMany(mappedBy = "telefone_funcionario", cascade = CascadeType.ALL)
     private List<Telefone> telefones;
@@ -71,6 +101,13 @@ public class Funcionario implements Serializable {
 
     @OneToMany(mappedBy = "enderecos_funcionario", cascade = CascadeType.ALL)
     private List<Endereco> enderecos;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "agenciaBancaria")
+    private AGBancaria aGBancaria;
+
+    @OneToOne(mappedBy = "usuario_funcionario", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Usuario usuario;
 
     public Long getIdFuncionario() {
         return idFuncionario;
@@ -104,11 +141,11 @@ public class Funcionario implements Serializable {
         this.rg = rg;
     }
 
-    public String getDt_nascimento() {
+    public Calendar getDt_nascimento() {
         return dt_nascimento;
     }
 
-    public void setDt_nascimento(String dt_nascimento) {
+    public void setDt_nascimento(Calendar dt_nascimento) {
         this.dt_nascimento = dt_nascimento;
     }
 
@@ -152,12 +189,12 @@ public class Funcionario implements Serializable {
         this.horarios = horarios;
     }
 
-    public Cargo getCargo() {
-        return cargo;
+    public List<Cargo> getCargos() {
+        return cargos;
     }
 
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
+    public void setCargos(List<Cargo> cargos) {
+        this.cargos = cargos;
     }
 
     public List<Titulo> getTitulos() {
@@ -183,7 +220,81 @@ public class Funcionario implements Serializable {
     public void setTelefones(List<Telefone> telefones) {
         this.telefones = telefones;
     }
-    
-    
+
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
+    }
+
+    public String getConta() {
+        return conta;
+    }
+
+    public void setConta(String conta) {
+        this.conta = conta;
+    }
+
+    public AGBancaria getaGBancaria() {
+        return aGBancaria;
+    }
+
+    public void setaGBancaria(AGBancaria aGBancaria) {
+        this.aGBancaria = aGBancaria;
+    }
+
+    public String getSexo() {
+        if (sexo.equals("M")) {
+            return "MASCULINO";
+        } else if (sexo.equals("F")) {
+            return "FEMININO";
+        } else {
+            return null;
+        }
+
+    }
+
+    public void setSexo(String sexo) {
+        if (sexo.equals("MASCULINO")) {
+            this.sexo = "M";
+        } else if (sexo.equals("FEMININO")) {
+            this.sexo = "F";
+        }
+
+    }
+
+    public String getPis() {
+        return pis;
+    }
+
+    public void setPis(String pis) {
+        this.pis = pis;
+    }
+
+    public String getInss() {
+        return inss;
+    }
+
+    public void setInss(String inss) {
+        this.inss = inss;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }
 
 }

@@ -30,7 +30,9 @@ public class UsuarioDAOImpl extends HibernateDAO implements UsuarioDAO {
             e.printStackTrace();
             return null;
         } finally {
-            session.close();
+            if (!session.isConnected()) {
+                session.close();
+            }
         }
     }
 

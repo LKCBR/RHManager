@@ -6,10 +6,13 @@
 package br.com.rhmanager.daoImpl;
 
 import br.com.rhmanager.bean.Funcionario;
+import br.com.rhmanager.bean.funcionarios.Cargo;
 import br.com.rhmanager.dao.FuncionarioDAO;
 import br.com.rhmanager.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -63,6 +66,34 @@ public class FuncionarioDAOImpl extends HibernateDAO implements FuncionarioDAO {
             return null;
         } finally {
             session.close();
+        }
+    }
+
+    @Override
+    public List<Funcionario> getFuncionariosBusca(String nome, String cpf, Cargo cargo) {
+        Session session = null;
+        try {
+            session = HibernateUtil.getSession();
+            Criteria criteria = session.createCriteria(Funcionario.class);
+
+            if (nome.length() > 0) {
+                criteria.add(Restrictions.ilike("nome", "%" + nome + "%"));
+            }
+
+            if (cpf.length() > 0) {
+                criteria.add(Restrictions.ilike("cpf", cpf + "%"));
+            }
+
+            criteria.setFetchMode("cargos", FetchMode.JOIN);
+
+            return criteria.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (!session.isConnected()) {
+                session.close();
+            }
         }
     }
 

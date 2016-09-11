@@ -140,7 +140,30 @@ public class ValidarUtil {
         }
     }
 
-    public static boolean acessoEmailSenha(TextField tfEmail, PasswordField tfSenha, ToggleButton tbAtivarAcesso) {
+    public static boolean verificarAGB(TextField tfAgencia, TextField tfConta, ComboBox cbAgenciaBancaria) {
+
+        if (ValidarUtil.validarTextField(tfConta, 3) || ValidarUtil.validarTextField(tfAgencia, 3) || ValidarUtil.validarComboBox(cbAgenciaBancaria)) {
+
+            boolean agencia, conta, agenciaa;
+            agencia = ValidarUtil.validarTextField(tfAgencia, 3);
+            conta = ValidarUtil.validarTextField(tfConta, 3);
+            agenciaa = ValidarUtil.validarComboBox(cbAgenciaBancaria);
+
+            return agencia && conta && agenciaa;
+
+        } else {
+
+            tfAgencia.setStyle(StylesUtil.BOXSHADOW_ORANGE);
+            tfConta.setStyle(StylesUtil.BOXSHADOW_ORANGE);
+            cbAgenciaBancaria.setStyle(StylesUtil.BOXSHADOW_ORANGE);
+
+            return true;
+
+        }
+
+    }
+
+    public static boolean acessoEmailSenha(TextField tfEmail, PasswordField tfSenha, ToggleButton tbAtivarAcesso, ComboBox cbPermissao) {
         if (tbAtivarAcesso.isSelected() || tfSenha.getText().length() > 0 || tfEmail.getText().length() > 0) {
             boolean email, senha;
             if (!tbAtivarAcesso.isSelected()) {
@@ -166,11 +189,20 @@ public class ValidarUtil {
                 senha = true;
             }
 
+            if (cbPermissao.getSelectionModel().getSelectedItem() == null) {
+                cbPermissao.setStyle(ERRO);
+                senha = false;
+            } else {
+                cbPermissao.setStyle(OK);
+                senha = true;
+            }
+
             return email && senha;
         } else {
             tfEmail.setStyle(ALERT);
             tfSenha.setStyle(ALERT);
             tbAtivarAcesso.setStyle(ALERT);
+            cbPermissao.setStyle(ALERT);
             return true;
         }
     }

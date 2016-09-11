@@ -38,7 +38,7 @@ public class CargoController {
         threadCargos.start();
     }
 
-    public void preencherBomboBoxDB(ObservableList<String> oLCargos, ComboBox<String> comboBox) {
+    public void preencherComboBoxDB(ObservableList<String> oLCargos, ComboBox<String> comboBox) {
 
         carregarComboBox = new Runnable() {
             @Override
@@ -51,6 +51,8 @@ public class CargoController {
                     oLCargos.add(cargo.getTitulo());
 
                 }
+
+                System.out.println("FUNCIONANDO" + oLCargos.get(0));
 
                 comboBox.setItems(oLCargos);
             }
@@ -85,7 +87,7 @@ public class CargoController {
             } else {
                 AlertUtil.erro("Erro", "Este cargo já foi adicionado a este Funcionário!", "");
             }
-        }else{
+        } else {
             AlertUtil.alertAtencao("Atenção", "Selecione o cargo que deseja inserir.", "Caso não esteja presente no componente de seleção adicione um cargo novo Pressionando o Botão Novo Cargo. ");
         }
 
@@ -106,6 +108,12 @@ public class CargoController {
             }
 
         }
+    }
+
+    public Cargo getCargoByName(String nome) {
+        CargoDAOImpl cargoDAOImpl = new CargoDAOImpl();
+
+        return cargoDAOImpl.getCargoByName(nome);
     }
 
 }

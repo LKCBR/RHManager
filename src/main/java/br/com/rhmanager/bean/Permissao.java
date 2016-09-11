@@ -38,4 +38,44 @@ public class Permissao implements Serializable {
     @OneToMany(mappedBy = "permissao_usuario", fetch = FetchType.LAZY)
     private List<Usuario> usuarios;
 
+    public Long getIdPermissao() {
+        return idPermissao;
+    }
+
+    public void setIdPermissao(Long idPermissao) {
+        this.idPermissao = idPermissao;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public Calendar getDt_cadastro() {
+        return dt_cadastro;
+    }
+
+    public void setDt_cadastro(Calendar dt_cadastro) {
+        this.dt_cadastro = dt_cadastro;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
 }

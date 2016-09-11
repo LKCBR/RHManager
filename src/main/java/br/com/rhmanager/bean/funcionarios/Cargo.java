@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
@@ -25,8 +26,8 @@ public class Cargo implements Serializable {
     @Column(name = "titulo", nullable = false, unique = true)
     private String titulo;
 
-    @OneToMany(mappedBy = "cargo")
-    private List<Funcionario> funcionarios;
+    @ManyToMany(mappedBy = "cargos")
+    private List<Funcionario> funcionarios_cargos;
 
     public Long getIdCargos() {
         return idCargos;
@@ -44,12 +45,12 @@ public class Cargo implements Serializable {
         this.titulo = titulo;
     }
 
-    public List<Funcionario> getFuncionarios() {
-        return funcionarios;
+    public List<Funcionario> getFuncionarios_cargos() {
+        return funcionarios_cargos;
     }
 
-    public void setFuncionarios(List<Funcionario> funcionarios) {
-        this.funcionarios = funcionarios;
+    public void setFuncionarios_cargos(List<Funcionario> funcionarios_cargos) {
+        this.funcionarios_cargos = funcionarios_cargos;
     }
 
 }

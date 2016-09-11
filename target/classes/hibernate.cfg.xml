@@ -21,6 +21,7 @@
         <mapping class="br.com.rhmanager.bean.Permissao"/>
         <mapping class="br.com.rhmanager.bean.Usuario"/>
         <mapping class="br.com.rhmanager.bean.Funcionario"/>
+        <mapping class="br.com.rhmanager.bean.AGBancaria"/>
         
         <!--Instituição-->
         <mapping class="br.com.rhmanager.bean.Instituicao"/>

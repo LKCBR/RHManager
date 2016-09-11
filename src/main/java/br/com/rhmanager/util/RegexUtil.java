@@ -11,4 +11,8 @@ public class RegexUtil {
 
     //MASK
     public static String MASK_TEL = "(##) ####-#####";
+
+    public static String removerCaracteresCPF_RG_TELEFONE(String string) {
+        return string.replaceAll("\\.", "").replaceAll("-", "").replaceAll("\\(", "").replaceAll("\\)", "").replaceAll(" ", "");
+    }
 }

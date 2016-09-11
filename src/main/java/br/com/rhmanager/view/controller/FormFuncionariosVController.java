@@ -1,23 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.rhmanager.view.controller;
 
 import br.com.rhmanager.TableView.CargoTableView;
 import br.com.rhmanager.TableView.EnderecoTableView;
 import br.com.rhmanager.TableView.TelefoneTableView;
 import br.com.rhmanager.TableView.TituloTableView;
+import br.com.rhmanager.bean.AGBancaria;
 import br.com.rhmanager.bean.Funcionario;
 import br.com.rhmanager.bean.funcionarios.Cargo;
 import br.com.rhmanager.bean.funcionarios.Endereco;
 import br.com.rhmanager.bean.funcionarios.Telefone;
 import br.com.rhmanager.bean.funcionarios.Titulo;
+import br.com.rhmanager.controller.AGBancariaController;
 
 import br.com.rhmanager.controller.CargoController;
 import br.com.rhmanager.controller.EnderecoController;
 import br.com.rhmanager.controller.FuncionarioController;
+import br.com.rhmanager.controller.PermissaoController;
 import br.com.rhmanager.controller.TelefonesController;
 import br.com.rhmanager.controller.TituloController;
 import br.com.rhmanager.util.CEPWebService;
@@ -69,6 +67,8 @@ public class FormFuncionariosVController implements Initializable {
     TelefonesController telefoneController;
     TituloController tituloController;
     CargoController cargoController;
+    AGBancariaController aGBancariaController;
+    PermissaoController permissaoController;
 
     //LISTS    
     List<Endereco> enderecos = new ArrayList();
@@ -78,6 +78,8 @@ public class FormFuncionariosVController implements Initializable {
 
     //OBSERVABLE LIST
     ObservableList<String> cargos;
+    ObservableList<String> agencias;
+    ObservableList<String> permissoes;
 
     //OBJETOS
     private Funcionario funcionario;
@@ -228,11 +230,14 @@ public class FormFuncionariosVController implements Initializable {
     @FXML
     private PasswordField pwSenha;
 
+    @FXML
+    private ComboBox<String> cbPermissaoAcesso;
+
     /*
     CONTA BANCARIA
      */
     @FXML
-    private ComboBox cbAgenciaBancaria;
+    private ComboBox<String> cbAgenciaBancaria;
 
     @FXML
     private Button btAdicionarAgencia;
@@ -257,10 +262,10 @@ public class FormFuncionariosVController implements Initializable {
 
     @FXML
     private ToggleButton tbAcesso;
-lu
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         btAddEndereco.setGraphic(Icons.getIcon(Icons.ICON_DOWNLOAD, 22));
         btInserirTitulo.setGraphic(Icons.getIcon(Icons.ICON_DOWNLOAD, 22));
         btInserirTelefone.setGraphic(Icons.getIcon(Icons.ICON_DOWNLOAD, 22));
@@ -270,13 +275,15 @@ lu
         btRemoverTelefone.setGraphic(Icons.getIcon(Icons.ICON_UPLOAD, 22));
         btRemoverTitulo.setGraphic(Icons.getIcon(Icons.ICON_UPLOAD, 22));
         btNovoCargo.setGraphic(Icons.getIcon(Icons.ICON_ADD_, 22));
-        
+
         // CONTROLLER
         funcionarioController = new FuncionarioController();
         enderecoController = new EnderecoController();
         telefoneController = new TelefonesController();
         tituloController = new TituloController();
         cargoController = new CargoController();
+        aGBancariaController = new AGBancariaController();
+        permissaoController = new PermissaoController();
 
         //TABLE VIEW & COMBOBOX
         enderecoTableView = new EnderecoTableView(tvEnderecos, tcCidade, tcBairro, tcRua, tcNumero);
@@ -286,13 +293,17 @@ lu
 
         //OBSERVABLE LIST
         cargos = FXCollections.observableArrayList();
+        agencias = FXCollections.observableArrayList();
+        permissoes = FXCollections.observableArrayList();
 
         //MÉTODOS
         enderecoController.listarEnderecos(enderecoTableView, enderecos);
         telefoneController.listarTelefones(telefoneTableView, telefones);
         tituloController.listarTitulos(tituloTableView, titulos);
-        cargoController.preencherBomboBoxDB(cargos, cbCargo);
+        cargoController.preencherComboBoxDB(cargos, cbCargo);
         cargoController.preencherTable(cargoTableView, lCargos);
+        aGBancariaController.preencherComboBox(cbAgenciaBancaria, agencias);
+        permissaoController.preencherComboBoxDB(permissoes, cbPermissaoAcesso);
 
         //PREDEFINICOES
         cbSexo.getItems().addAll("MASCULINO", "FEMININO");
@@ -321,9 +332,9 @@ lu
 
     @FXML
     private void salvarFuncionario() {
-        funcionarioController.validar(tfNome, tfCPF, tfRG, cbSexo,
-                dtNasc, tfPIS, tfINSS, tvEnderecos, tvCargo, tvTelefones,
-                tvTitulos, tfEmail, tfConta, tfAgencia, cbAgenciaBancaria, tbAcesso, tfEmailAcesso, pwSenha);
+        funcionarioController.salvarFuncionario(funcionario, enderecos, telefones, lCargos, tfNome, tfCPF,
+                tfRG, cbSexo, dtNasc, tfPIS, tfINSS, tvEnderecos, tvCargo, tvTelefones, tvTitulos,
+                tfEmail, tfConta, tfAgencia, cbAgenciaBancaria, tbAcesso, tfEmailAcesso, pwSenha, cbPermissaoAcesso, tbAtivo);
     }
 
     @FXML

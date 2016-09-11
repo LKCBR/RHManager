@@ -1,7 +1,7 @@
 package br.com.rhmanager.daoImpl;
 
-import br.com.rhmanager.bean.funcionarios.Cargo;
-import br.com.rhmanager.dao.CargoDAO;
+import br.com.rhmanager.bean.Permissao;
+import br.com.rhmanager.dao.PermissaoDAO;
 import br.com.rhmanager.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -12,14 +12,14 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author lucas
  */
-public class CargoDAOImpl extends HibernateDAO implements CargoDAO {
+public class PermissaoDAOImpl extends HibernateDAO implements PermissaoDAO {
 
     @Override
-    public List<Cargo> listarCargos() {
+    public List<Permissao> getPermissoes() {
         Session session = null;
         try {
             session = HibernateUtil.getSession();
-            Criteria criteria = session.createCriteria(Cargo.class);
+            Criteria criteria = session.createCriteria(Permissao.class);
 
             return criteria.list();
         } catch (Exception e) {
@@ -33,18 +33,21 @@ public class CargoDAOImpl extends HibernateDAO implements CargoDAO {
     }
 
     @Override
-    public Cargo getCargoByName(String nome) {
+    public Permissao getPermissaoByName(String permissao) {
         Session session = null;
         try {
             session = HibernateUtil.getSession();
-            Criteria criteria = session.createCriteria(Cargo.class);
-            criteria.add(Restrictions.eq("titulo", nome));
-            return (Cargo) criteria.uniqueResult();
+            Criteria criteria = session.createCriteria(Permissao.class);
+            criteria.add(Restrictions.eq("titulo", permissao));
+
+            return (Permissao) criteria.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         } finally {
-            session.close();
+            if (!session.isConnected()) {
+                session.close();
+            }
         }
     }
 
